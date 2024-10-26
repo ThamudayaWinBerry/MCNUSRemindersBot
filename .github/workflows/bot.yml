@@ -1,9 +1,9 @@
 name: Run Telegram Bot Daily
 
-# Trigger the workflow every day at midnight UTC
+# Trigger the workflow every day at midnight SGT, 4pm UTC
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 16 * * *'
   workflow_dispatch:  # Allows you to run manually as well
 
 jobs:
