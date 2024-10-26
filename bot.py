@@ -10,6 +10,9 @@ load_dotenv()
 
 # Initialize the bot with the token from .env
 bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
+if not bot_token:
+    raise ValueError("Bot token not found. Please check your environment variables.")
+
 bot = Bot(token=bot_token)
 
 # Load group chat ID and topic ID from environment variables
