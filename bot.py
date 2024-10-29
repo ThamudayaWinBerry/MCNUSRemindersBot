@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 import asyncio
-from datetime import datetime
+from datetime import datetime, timedelta
 from telegram import Bot
 from dotenv import load_dotenv
 
@@ -24,12 +24,16 @@ async def send_special_day_messages():
     data = pd.read_csv("special_days.csv")
     print("Loaded CSV data:", data)  # Debug print
 
-    # Get today's date
-    today = datetime.today().strftime('%Y-%m-%d')
-    print("Today's date:", today)  # Debug print
+    # Calculate the "current day" in SGT, which will be tomorrow UTC
+    today_sgt = (datetime.utcnow() + timedelta(days=1)).strftime('%Y-%m-%d')
+    print("SGT today's date:", today_sgt)  # Debug print
+    
+    # # Get today's date
+    # today = datetime.today().strftime('%Y-%m-%d')
+    # print("Today's date:", today)  # Debug print
 
     # Filter messages for today
-    today_data = data[data['date'] == today]
+    today_data = data[data['date'] == today_sgt]
     print("Today's matching data:", today_data)  # Debug print
 
     # Send messages for each entry matching today's date in the specified topic

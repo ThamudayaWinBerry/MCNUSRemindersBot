@@ -8,9 +8,6 @@ This Telegram bot automatically sends special day messages, such as birthdays an
 3. [Usage](#usage)
 4. [CSV File Structure](#csv-file-structure)
 5. [Getting Chat ID](#getting-chat-id)
-6. [Configuration](#configuration)
-7. [Contributing](#contributing)
-8. [License](#license)
 
 ---
 
